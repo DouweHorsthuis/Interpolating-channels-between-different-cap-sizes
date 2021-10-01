@@ -5,7 +5,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-
+# found some major issues, do not use script it's being fixed
 <br />
 <p align="center">
   <a href="https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/">
