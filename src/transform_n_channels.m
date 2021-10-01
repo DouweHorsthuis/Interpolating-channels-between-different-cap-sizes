@@ -19,7 +19,7 @@
 %     keep            -   Only for 160 channel data that will be transformed
 %                         to 64 channel data. Keep only the original channels
 %                         and data that are closest to the 64channel
-%                         equivalent.          
+%                         equivalent.
 %
 % Output:
 %     EEGOUT          -   dataset with the new amount of channels
@@ -39,35 +39,49 @@
 % for the documentation and details.
 
 function EEG = transform_n_channels(ORGEEG, newchan,n_new_chan, methode)
-% if nargin == 3 % no landmark channels
-%     landmark = 'no';
-% end
+
+% clearing things that are not correct anymore
+    ORGEEG.icaact=[]; ORGEEG.icasphere =[]; ORGEEG.icaweights=[]; ORGEEG.icachansind=[];
 if n_new_chan == 64
     old = {'A1',  'A19'  'A23'  'B32'  'C7'  'D4'  'D8'  'E4'  'E9'  'C1'  'C2'  'C3'  'C4'  'C5'  'C6'};
     new = {'AA1', 'AA19' 'AA23' 'BB32' 'CC7' 'DD4' 'DD8' 'EE4' 'EE9' 'CC1' 'CC2' 'CC3' 'CC4' 'CC5' 'CC6'};
     final={'Cz' 'Pz' 'Oz' 'T8' 'C4' 'Fz' 'Fpz' 'C3' 'T7'};
+    old_keep={'D9' 'D22' 'D20' 'D13'  'D19' 'D24' 'D32' 'E8' 'E6' 'D27' 'D17' 'E2' 'E4' 'E11' 'E9' 'E16' 'E14' 'E26' 'E25' 'A5' 'A7' 'E29' 'E18' 'E32' 'A10' 'A8' 'A15' 'A25' 'A23' 'A21' 'A19' 'A3' 'D8' 'C32' 'C18' 'C20' 'D6' 'D4' 'C28' 'C21' 'C16' 'C12' 'C11' 'C9' 'C23' 'C24' 'D2' 'A1' 'C3' 'C7' 'B30' 'B32' 'B19' 'B21' 'B23' 'B24' 'A32' 'B4' 'B13' 'B17' 'B10' 'B7' 'B5' 'A28'};
+    new_keep={'Fp1' 'AF7' 'AF3' 'F1' 'F3' 'F5' 'F7' 'FT7' 'FC5' 'FC3' 'FC1' 'C1' 'C3' 'C5' 'T7' 'TP7' 'CP5' 'CP3' 'CP1' 'P1' 'P3' 'P5' 'P7' 'P9' 'PO7' 'PO3' 'O1' 'Iz' 'Oz' 'POz' 'Pz' 'CPz' 'Fpz' 'Fp2' 'AF8' 'AF4' 'AFz' 'Fz' 'F2' 'F4' 'F6' 'F8' 'FT8' 'FC6' 'FC4' 'FC2' 'FCz' 'Cz' 'C2' 'C4' 'C6' 'T8' 'TP8' 'CP6' 'CP4' 'CP2' 'P2' 'P4' 'P6' 'P8' 'P10' 'PO8' 'PO4' 'O2'};
     % Cz=A1 Pz=A19 Oz=A23 T8=B32 C4 =C7 Fz=D4 FPz=D8 C3=E4 T7=E9
-    for c=1:length(old)%updating channel names to prefent duplicates
-        for n=1:length(ORGEEG.chanlocs)
-            if strcmp(ORGEEG.chanlocs(n).labels, old{c})
-                ORGEEG.chanlocs(n).labels = new{c};
+    if strcmp(methode, 'keep') %for this one we need to skip the iterpolation
+        %need the chose 160 channels in the 64 channel order
+        data=ORGEEG.data([105;118;116;109;115;120;128;136;134;123;113;130;132;139;137;144;142;154;153;5;7;157;146;160;10;8;15;25;23;21;19;3;104;96;82;84;102;100;92;85;80;76;75;73;87;88;98;1;67;71;62;64;51;53;55;56;32;36;45;49;42;39;37;28],:);
+        ORGEEG = pop_select( ORGEEG, 'channel',{'A1','A3','A5','A7','A8','A10','A15','A19','A21','A23','A25','A28','A32','B4','B5','B7','B10','B13','B17','B19','B21','B23','B24','B30','B32','C3','C7','C9','C11','C12','C16','C18','C20','C21','C23','C24','C28','C32','D2','D4','D6','D8','D9','D13','D17','D19','D20','D22','D24','D27','D32','E2','E4','E6','E8','E9','E11','E14','E16','E18','E25','E26','E29','E32'});
+    else
+        
+        for c=1:length(old)%updating channel names to prefent duplicates
+            for n=1:length(ORGEEG.chanlocs)
+                if strcmp(ORGEEG.chanlocs(n).labels, old{c})
+                    ORGEEG.chanlocs(n).labels = new{c};
+                end
             end
         end
+        
+        [ORGEEG] = pop_interp(ORGEEG, newchan, 'spherical');
     end
-    [ORGEEG] = pop_interp(ORGEEG, newchan, 'spherical');
     %% giving the right urchan to the new ones
-    for u=1:length(ORGEEG.chanlocs)
-        for c=1:length(final)%updating channel names to prefent duplicates
-            for n=1:length(ORGEEG.chanlocs)
-                if strcmp(ORGEEG.chanlocs(n).labels, final{c})
-                    urch = ORGEEG.chanlocs(n).urchan;
+    if strcmp(methode, 'keep') %for this one we need to look for different channels then the rest
+        ORGEEG.data = data;
+    else
+        for u=1:length(ORGEEG.chanlocs)
+            for c=1:length(final)%updating channel names to prefent duplicates
+                for n=1:length(ORGEEG.chanlocs)
+                    if strcmp(ORGEEG.chanlocs(n).labels, final{c})
+                        urch = ORGEEG.chanlocs(n).urchan;
+                    end
                 end
-            end
-            for n=1:length(ORGEEG.chanlocs)
-                if strcmp(ORGEEG.chanlocs(n).labels, new{c}) %looking for the old channels
-                    ORGEEG.chanlocs(n).urchan = urch; %updating their lables with the new name
+                for n=1:length(ORGEEG.chanlocs)
+                    if strcmp(ORGEEG.chanlocs(n).labels, new{c}) %looking for the old channels
+                        ORGEEG.chanlocs(n).urchan = urch; %updating their lables with the new name
+                    end
+                    
                 end
-                
             end
         end
     end
@@ -85,7 +99,14 @@ if n_new_chan == 64
             end
         end
     elseif strcmp(methode, 'keep')
-        ORGEEG = pop_select( ORGEEG, 'channel',{'AA1','A3','A5','A7','A8','A10','A15','AA19','A21','AA23','A25','A28','A32','B4','B5','B7','B10','B13','B17','B19','B21','B23','B24','B30','BB32','CC3','CC7','C9','C11','C12','C16','C18','C20','C21','C23','C24','C28','C32','D2','DD4','D6','DD8','D9','D13','D17','D19','D20','D22','D24','D27','D32','E2','EE4','E6','E8','EE9','E11','E14','E16','E18','E25','E26','E29','E32'});
+        for c=1:length(old_keep)%updating channel names to final names
+            for n=1:length(ORGEEG.chanlocs)
+                if strcmp(ORGEEG.chanlocs(n).labels, old_keep{c})
+                    ORGEEG.chanlocs(n).labels = new_keep{c};
+                    ORGEEG.chanlocs(n).urchan=c;
+                end
+            end
+        end
     else
         disp('error no methode was inputted')
     end
