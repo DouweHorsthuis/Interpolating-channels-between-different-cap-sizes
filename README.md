@@ -25,7 +25,7 @@
     - [Prerequisites](#prerequisites)  
 3. [Usage](#usage)
     - [From 160 to 64 VS. from 64 to 160](#from-160-to-64-vs.-from-64-to-160)
-    - [Landmark channels VS. no landmark channels](#landmark-channels-vs.-no-landmark-channels)
+    - [EEGlab structures](#eeglab-structures)
 3. [Further testing](#further-testing)
 3. [License](#license)
 3. [Contact](#contact)
@@ -48,13 +48,14 @@ Usage: EEGOUT = transform_channels(EEG,chanlocs_new,n_new_chan);
   *chanlocs_new*    -   chanlocs stucture with amount of channels  
                         desired for EEG to be transformed to.  
   *n_new_chan*      -   64 or 160, this will decide what channels to keep  
-**Optional Inputs:**  
-  *landmarks*       -   adding this, the landmark channels will not be interpolated. This will only count for : Cz=A1 Pz=A19 Oz=A23 T8=B32 C4 =C7 Fz=D4 FPz=D8 C3=E4 T7=E9 when not adding this, all new channels will be interpolated. No landmark channels will be used.  
+**Methodes:**  
+  *Interpolate*       -   This will interpolate all the channels from one configuration to the next
+  *Keep*              -   This will keep all the original channels that are as close as possible to the equivilant channel of the new configuration.
 **Output:**  
   *EEGOUT*          -   dataset with the new amount of channels  
 
 **Example:**  
-``` EEG = transform_n_channels(EEG,EEG2.chanlocs,64);```
+``` EEG = transform_n_channels(EEG,EEG2.chanlocs,64,Keep);```
 
 **Extra:**  
 To get the EEG2.chanlocs with the new amount of channels,simply load an .set file with those amount of channels making sure that the channel info has been inputted
@@ -96,20 +97,24 @@ Then you use the function EEG = transform_n_channels(ORGEEG, newchan,n_new_chan,
 
 ### From 160 to 64 VS. from 64 to 160
 
-You can use the function in both directions, one thing to keep in mind is that creating 64 channels out of 160 is using a lot of data to create less new channels, whereas the opossite is true when you go from 64 to 160. Always test the data still looks the way it should. 
+You can use the function in both directions, one thing to keep in mind is that creating 64 channels out of 160 is using a lot of data to create less new channels, whereas the opossite is true when you go from 64 to 160. Always test the data still looks the way it should. When looking at topoplots it shows what happens. In the first case we interpolate from 160 to 64 channels. These are the original data before the function is run at 0ms and 100ms.  
+![original 160](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_160.jpg)  
+This is the data after interpolating it to 64 channels  
+![160 to 64 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_160_inter.jpg)  
+This is the same data when keeping the original channels to go to 64.  
+![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_160.jpg)
+  
+### EEGlab structures
 
-### Landmark channels VS. no landmark channels
-
-Landmark channels are channels that are the same for each cap. These are Cz=A1 Pz=A19 Oz=A23 T8=B32 C4 =C7 Fz=D4 FPz=D8 C3=E4 T7=E9. 
-There are arguements to keep them and arguments to only use interpolated data. I've chosen as a default to go without using the landmark channels, because we are transforming all the channels. This might have an inpact on their amplitude. To make sure the data doesn't have outliers, I prefer to only use interpolated channels. 
+This function works within EEGlab, and only works on things inside the EEG structure. The main part of the script deals with the name and location of the channels, this would be in EEG.chanlocs.  
+When it's done it also moves around the data in EEG.data. This is because for a 160ch setup, A1 is the first channel (meaning urchan = 1) wheras for a 64 channel setup FP1. The equivilant channel to A1 is Cz, this channel is the 48th channel.  
 
 
 ## Further testing
 
 To make sure this function works perfectly I will test the following
 1.  How does an ERP look from the original cap vs interpolated
-2.  How does a scalpmap look the original cap vs interpolated
-3.  Is there a difference between a scalpmap and ERP from a landmark channels vs interpolated channel in the new data
+
 
 ### Please let me know if you have any suggestion on how to make this function better
 
