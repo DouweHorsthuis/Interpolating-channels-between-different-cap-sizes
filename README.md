@@ -26,7 +26,7 @@
 3. [Usage](#usage)
     - [From 160 to 64 VS. from 64 to 160](#from-160-to-64-vs.-from-64-to-160)
     - [EEGlab structures](#eeglab-structures)
-3. [Further testing](#further-testing)
+3. [ERPs](#erps)
 3. [License](#license)
 3. [Contact](#contact)
 3. [Acknowledgement](#acknowledgement)
@@ -98,23 +98,30 @@ Then you use the function EEG = transform_n_channels(ORGEEG, newchan,n_new_chan,
 ### From 160 to 64 VS. from 64 to 160
 
 You can use the function in both directions, one thing to keep in mind is that creating 64 channels out of 160 is using a lot of data to create less new channels, whereas the opposite is true when you go from 64 to 160. Always test the data still looks the way it should. When looking at topoplots it shows what happens.  
-**In the first case we interpolate from 160 to 64 channels**. These are the original data before the function is run at 0ms and 100ms.  
-![original 160](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_160.jpg)
+**In the first case we interpolate from 160 to 64 .** These are the original data before the function is run at 0ms and 100ms.  
+![original 160](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_160.jpg)  
 This is the data after interpolating it to 64 channels  
-![160 to 64 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_160_inter.jpg) 
+![160 to 64 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_160_inter.jpg)  
 This is the same data when keeping the original channels to go to 64.  
-![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_160.jpg)
-  
+![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_160.jpg)  
+
+**IN the second case we interpolate from 64 to 160 channels.** 
+![original 64](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_64.jpg)  
+This is the data after interpolating it to 160 channels  
+![64 to 160 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_64.jpg)  
+This is the same data when keeping the original channels to go to 64.  
+![64 to 160 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_64.jpg)  
+
+
+
 ### EEGlab structures
 
 This function works within EEGlab, and only works on things inside the EEG structure. The main part of the script deals with the name and location of the channels, this would be in EEG.chanlocs.  
 When it's done it also moves around the data in EEG.data. This is because for a 160ch setup, A1 is the first channel (meaning urchan = 1) whereas for a 64 channel setup FP1. The equivalent channel to A1 is Cz, this channel is the 48th channel.  
 
 
-## Further testing
-
-To make sure this function works perfectly I will test the following
-1.  How does an ERP look from the original cap vs interpolated
+## ERPs
+I have tested plotting ERPs but they are somewhat misleading. When looking at the ERPs using the 'keep' methode they are identical to the original data. This makes sense because they are identical. Whereas the 'interpolate' methode changes the ERP a little. Because of this there are no ERPs here. But you can see them [here](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/)
 
 
 ### Please let me know if you have any suggestion on how to make this function better
