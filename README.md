@@ -122,7 +122,8 @@ This is the data after interpolating it to 64 channels
 This is the same data when keeping the original channels to go to 64.  
 ![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_160.jpg)  
 
-**IN the second case we interpolate from 64 to 160 channels.** 
+**IN the second case we interpolate from 64 to 160 channels.**  
+
 ![original 64](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_64.jpg)  
 This is the data after interpolating it to 160 channels  
 ![64 to 160 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_64.jpg)  
