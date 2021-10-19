@@ -8,13 +8,13 @@
 
 <br />
 <p align="center">
-  <a href="https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/">
+  <a href="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/">
     <img src="images/logo.jpeg" alt="Logo" width="80" height="80">
   </a> 
 
 <h3 align="center">Interpolating 160 channel cap data to 64 channels both directions</h3>
 
-<h4 align="center">This project is a function that interpolates data from a 160 channel data set into a 64 channel data set or interpolates from 64 to a 160. There is a landmark option; this allows you to keep the channels that are the same from the original data set.</h4>
+<h4 align="center">This project is a function that transforms data between 160 channel data sets and 64 channel data sets. There are 2 ways of doing this, one is via interpolation and one is via keeping channels that have the same approximate distance the the new channels. The whole function is build so that it works within the EEGlab structure.</h4>
 
 
 **Table of Contents**
@@ -28,6 +28,7 @@
     - [Two different methodes](#two-different-methodes)
     - [EEGlab structures](#eeglab-structures)
 3. [ERPs](#erps)
+3. [Future steps](#future-steps)
 3. [License](#license)
 3. [Contact](#contact)
 3. [Acknowledgement](#acknowledgement)
@@ -111,25 +112,25 @@ This method makes sure that the original data is not interpolated, instead it on
 1. As many channels as possible are not altered. This means that the data should be perfect for ICA for example.
 Cons:
 1. Since not all of the channels have an channel on the other layout with the exact same coordinates, the data less good spacial.
-2. if your original data is missing channels, it might be a problem to use this.
+2. if your original data is missing channels, it might be a problem to use this.Because you would need to interpolate the data before to get these channels.
 
 ### From 160 to 64 VS. from 64 to 160
 
 You can use the function in both directions, one thing to keep in mind is that creating 64 channels out of 160 is using a lot of data to create less new channels, whereas the opposite is true when you go from 64 to 160. Always test the data still looks the way it should. When looking at topoplots it shows what happens.  
 **In the first case we interpolate from 160 to 64 .** These are the original data before the function is run at 0ms and 100ms.  
-![original 160](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_160.jpg)  
+![original 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_160.jpg)  
 This is the data after interpolating it to 64 channels  
-![160 to 64 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_160_inter.jpg)  
+![160 to 64 interpolation](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_160_inter.jpg)  
 This is the same data when keeping the original channels to go to 64.  
-![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_160.jpg)  
+![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_160.jpg)  
 
 **IN the second case we interpolate from 64 to 160 channels.**  
 
-![original 64](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/original_64.jpg)  
+![original 64](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_64.jpg)  
 This is the data after interpolating it to 160 channels  
-![64 to 160 interpolation](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/inter_64.jpg)  
+![64 to 160 interpolation](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_64.jpg)  
 This is the same data when keeping the original channels to go to 64.  
-![64 to 160 keeping channels](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/keep_64.jpg)  
+![64 to 160 keeping channels](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_64.jpg)  
 
 ### EEGlab structures
 
@@ -138,8 +139,10 @@ When it's done it also moves around the data in EEG.data. This is because for a 
 
 
 ## ERPs
-I have tested plotting ERPs but they are somewhat misleading. When looking at the ERPs using the 'keep' method they are identical to the original data. This makes sense because they are identical. Whereas the 'interpolate' method changes the ERP a little. Because of this there are no ERPs here. But you can see them [here](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/main/images/)
+I have tested plotting ERPs but they are somewhat misleading. When looking at the ERPs using the 'keep' method they are identical to the original data. This makes sense because they are identical. Whereas the 'interpolate' method changes the ERP a little. Because of this there are no ERPs here. But you can see them [here](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/)
 
+### Future steps  
+Ideally we want to test this funtion on a group of datasets to see if there is an issue and if it changes the data in a significant way.  
 
 ### Please let me know if you have any suggestion on how to make this function better
 
@@ -155,7 +158,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Douwe Horsthuis - [@douwejhorsthuis](https://twitter.com/douwejhorsthuis) - douwehorsthuis@gmail.com
 
-Project Link: [https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/](https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/)
+Project Link: [https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/)
 
 
 ## Acknowledgements
@@ -167,16 +170,16 @@ Project Link: [https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeg
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab.svg?style=for-the-badge
-[contributors-url]: https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/graphs/contributors
+[contributors-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab.svg?style=for-the-badge
-[forks-url]: https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/network/members
+[forks-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/network/members
 [stars-shield]: https://img.shields.io/github/stars/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab.svg?style=for-the-badge
-[stars-url]: https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/stargazers
+[stars-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab.svg?style=for-the-badge
-[issues-url]: https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/issues
+[issues-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/issues
 [license-shield]: https://img.shields.io/github/license/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab.svg?style=for-the-badge
-[license-url]: https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeglab/blob/master/LICENSE.txt
+[license-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/douwe-horsthuis-725bb9188
 [doi-shield]:https://zenodo.org/badge/doi/10.5281/zenodo.5579715.svg?style=for-the-badge
-[doi-url]:(https://zenodo.org/badge/latestdoi/366439475)
+[doi-url]:https://zenodo.org/badge/latestdoi/366439475
