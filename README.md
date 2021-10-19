@@ -179,4 +179,4 @@ Project Link: [https://github.com/DouweHorsthuis/Interpolating_160ch_to_64ch_eeg
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/douwe-horsthuis-725bb9188
 [doi-shield]:https://zenodo.org/badge/doi/10.5281/zenodo.5579715.svg?style=for-the-badge
-[doi-url]:(https://zenodo.org/badge/latestdoi/366439475)
+[doi-url]:https://zenodo.org/badge/latestdoi/366439475
