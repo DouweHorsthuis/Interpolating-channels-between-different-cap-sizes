@@ -4,6 +4,7 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+[![DOI](https://zenodo.org/badge/366439475.svg)](https://zenodo.org/badge/latestdoi/366439475)
 
 <br />
 <p align="center">
