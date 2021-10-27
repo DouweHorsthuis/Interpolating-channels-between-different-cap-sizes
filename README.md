@@ -12,7 +12,7 @@
     <img src="images/logo.jpeg" alt="Logo" width="80" height="80">
   </a> 
 
-<h3 align="center">Interpolating 160 channel cap data to 64 channels both directions</h3>
+<h3 align="center">Transforming data and structures between 160 channel cap and 64 channels</h3>
 
 <h4 align="center">This project is a function that transforms data between 160 channel data sets and 64 channel data sets. There are 2 ways of doing this, one is via interpolation and one is via keeping channels that have the same approximate distance the the new channels. The whole function is build so that it works within the EEGlab structure.</h4>
 
