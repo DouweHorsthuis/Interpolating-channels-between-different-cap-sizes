@@ -4,7 +4,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![DOI][doi-shield]][doi-url]
 
 <br />
 <p align="center">
@@ -185,5 +184,4 @@ Project Link: [https://github.com/DouweHorsthuis/Interpolating-channels-between-
 [license-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/douwe-horsthuis-725bb9188
-[doi-shield]:https://zenodo.org/badge/doi/10.5281/zenodo.5579715.svg?style=for-the-badge
-[doi-url]:https://zenodo.org/badge/latestdoi/366439475
+
