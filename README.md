@@ -24,6 +24,7 @@
 2. [Getting started](#getting-started)
     - [Prerequisites](#prerequisites)  
 3. [Usage](#usage)
+    - [Caps](#caps)
     - [From 160 to 64 VS. from 64 to 160](#from-160-to-64-vs.-from-64-to-160)
     - [Two different methodes](#two-different-methodes)
     - [EEGlab structures](#eeglab-structures)
@@ -96,6 +97,9 @@ Then you use the function EEG = transform_n_channels(ORGEEG, newchan,n_new_chan,
  EEG2 = pop_loadset('filename', '160.set', 'filepath', data_path);%loading participant file with 64 channels
  EEG = transform_n_channels(EEG,EEG2.chanlocs,160, 'landmark');
 ```
+### Caps  
+Important to note is that this function is made to be used one Bio-semi caps. For now it uses the locations of a 64channels cap with a 10-20 system layout and a 160 channel cap with a ABC layout. For more info on these differences see [the biosemi website](https://www.biosemi.com/headcap.htm)  
+
 ### Two different methods  
 
 The function uses two different methods. Either it interpolates all the channels or it keeps the channel that are the as close as possible between the original and the new data and adds/takes the remaining channels depending on if you go from 160-->64 or 64-->160.
@@ -143,8 +147,8 @@ I have tested plotting ERPs but they are somewhat misleading. When looking at th
 
 ### Future steps  
 Ideally we want to test this funtion on a group of datasets to see if there is an issue and if it changes the data in a significant way.  
-
-### Please let me know if you have any suggestion on how to make this function better
+ 
+### Please let me know if you have any suggestion on how to make this function better or if you want to help and update the function to include more cap sizes
 
 <!-- LICENSE -->
 ## License
