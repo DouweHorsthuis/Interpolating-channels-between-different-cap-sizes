@@ -150,7 +150,8 @@ When it's done it also moves around the data in EEG.data. This is because for a 
 I have tested plotting ERPs but they are somewhat misleading. When looking at the ERPs using the 'keep' method they are identical to the original data. This makes sense because they are identical. Whereas the 'interpolate' method changes the ERP a little. Because of this there are no ERPs here. But you can see them [here](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/)
 
 ### Scalpmaps  
-![before 64](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_before.gif| width=150) ![interpolate 64 to 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_inter.gif | width=150) ![keep 64 to 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif | width=150)
+![before 64](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_before.gif){:height="50%" width="50%"} ![interpolate 64 to 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_inter.gif){:height="150px" width="150px"} ![keep 64 to 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif | width=150)
+<img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif" width="150" height="150">
   
 ### Future steps  
 Ideally we want to test this funtion on a group of datasets to see if there is an issue and if it changes the data in a significant way.  
