@@ -151,7 +151,11 @@ I have tested plotting ERPs but they are somewhat misleading. When looking at th
 
 ### Scalpmaps  
 
-<img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_before.gif" width="150" height="150"> <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_inter.gif" width="150" height="150"> <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif" width="150" height="150">
+These are scalpmaps based on the data of 78 people that started with 160 channel cap and 28 people that started with at 64 channel cap.  
+
+Channel number transformation | Before interpolating | using the interpolate methode | using the keep methode  
+------------ | ------------ | ------------ | -------------  
+64 to 160 | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_before.gif" width="150" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_inter.gif" width="150" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif" width="150" height="150">
   
 ### Future steps  
 Ideally we want to test this funtion on a group of datasets to see if there is an issue and if it changes the data in a significant way.  
