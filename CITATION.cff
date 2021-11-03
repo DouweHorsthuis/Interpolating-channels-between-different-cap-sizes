@@ -1,0 +1,12 @@
+cff-version: 1.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Douwe John"
+  given-names: "Horsthuis"
+- family-names: "Ana Alves"
+  given-names: "Francisco"
+title: "Flanker Task Paradigm"
+version: 1.01
+doi: 10.5281/zenodo.5605010
+date-released: 10/27/2021
+url: "https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/"

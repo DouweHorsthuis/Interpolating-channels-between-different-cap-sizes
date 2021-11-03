@@ -4,7 +4,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-[![DOI][doi-shield]][doi-url]
 
 <br />
 <p align="center">
@@ -12,7 +11,7 @@
     <img src="images/logo.jpeg" alt="Logo" width="80" height="80">
   </a> 
 
-<h3 align="center">Interpolating 160 channel cap data to 64 channels both directions</h3>
+<h3 align="center">Transforming data and structures between 160 channel cap and 64 channels</h3>
 
 <h4 align="center">This project is a function that transforms data between 160 channel data sets and 64 channel data sets. There are 2 ways of doing this, one is via interpolation and one is via keeping channels that have the same approximate distance the the new channels. The whole function is build so that it works within the EEGlab structure.</h4>
 
@@ -195,5 +194,4 @@ Project Link: [https://github.com/DouweHorsthuis/Interpolating-channels-between-
 [license-url]: https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/douwe-horsthuis-725bb9188
-[doi-shield]:https://zenodo.org/badge/doi/10.5281/zenodo.5579715.svg?style=for-the-badge
-[doi-url]:https://zenodo.org/badge/latestdoi/366439475
+
