@@ -28,7 +28,9 @@
     - [From 160 to 64 VS. from 64 to 160](#from-160-to-64-vs.-from-64-to-160)
     - [Two different methodes](#two-different-methodes)
     - [EEGlab structures](#eeglab-structures)
-3. [ERPs](#erps)
+3. [Testing the function](#testing-the-function)
+    - [ERPS](#erps)
+    - [Scalpmaps](#scalpmaps)
 3. [Future steps](#future-steps)
 3. [License](#license)
 3. [Contact](#contact)
@@ -140,11 +142,19 @@ This is the same data when keeping the original channels to go to 64.
 
 This function works within EEGlab, and only works on things inside the EEG structure. The main part of the script deals with the name and location of the channels, this would be in EEG.chanlocs.  
 When it's done it also moves around the data in EEG.data. This is because for a 160ch setup, A1 is the first channel (meaning urchan = 1) whereas for a 64 channel setup FP1. The equivalent channel to A1 is Cz, this channel is the 48th channel.  
+  
+  
+## Testing the function    
 
+### ERPs  
 
-## ERPs
 I have tested plotting ERPs but they are somewhat misleading. When looking at the ERPs using the 'keep' method they are identical to the original data. This makes sense because they are identical. Whereas the 'interpolate' method changes the ERP a little. Because of this there are no ERPs here. But you can see them [here](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/)
 
+### Scalpmaps  
+![before 64](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_before.gif)  
+![interpolate 64 to 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_inter.gif)  
+![keep 64 to 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif)
+  
 ### Future steps  
 Ideally we want to test this funtion on a group of datasets to see if there is an issue and if it changes the data in a significant way.  
  
