@@ -151,13 +151,12 @@ Or as can seen below in still figures at 100ms and 350ms into after the onset of
 
 Original Data | interpolate methode | keep methode  
  ------------ | ------------ | -------------  
- <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_64.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_64.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_64.png" width="300" height="150"> 
+<img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_64.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_64.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_64.png" width="300" height="150"> 
 
 **IN the second case we interpolate from 160 to 64 channels.**  
 
 Original Data | interpolate methode | keep methode  
  ------------ | ------------ | -------------  
-
 <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_160.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_160.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_160.png" width="300" height="150"> 
 
   
