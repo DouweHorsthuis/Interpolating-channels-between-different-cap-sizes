@@ -145,23 +145,20 @@ Channel number transformation | Original Data | interpolate methode | keep metho
 64 to 160 | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_before.gif" width="150" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_inter.gif" width="150" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/64_chan_keep.gif" width="150" height="150">  
 160 to 64 | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/160_chan_before.gif" width="150" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/160_chan_inter.gif" width="150" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/160_chan_keep.gif" width="150" height="150">
 
-Or as can seen below in still figures at 100ms and 350ms into after the onset of a stimulus.
+Or as can seen below in still figures at 100ms and 350ms into after the onset of a stimulus.  
 
-**In the first case we interpolate from 160 to 64 .** These are the original data before the function is run at 0ms and 100ms.  
-![original 160](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_160.png)  
-This is the data after interpolating it to 64 channels  
-![160 to 64 interpolation](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_160_inter.png)  
-This is the same data when keeping the original channels to go to 64.  
-![160 to 64 keeping channels](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_160.png)  
+**IN the first case we interpolate from 64 to 160 channels.** 
 
-**IN the second case we interpolate from 64 to 160 channels.**  
+Original Data | interpolate methode | keep methode  
+ ------------ | ------------ | -------------  
+ <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_64.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_64.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_64.png" width="300" height="150"> 
 
-![original 64](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_64.png)   
-This is the data after interpolating it to 160 channels  
-![64 to 160 interpolation](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_64.png)  
-This is the same data when keeping the original channels to go to 64.  
-![64 to 160 keeping channels](https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_64.png)  
+**IN the second case we interpolate from 160 to 64 channels.**  
 
+Original Data | interpolate methode | keep methode  
+ ------------ | ------------ | -------------  
+
+<img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/original_160.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/inter_160.png" width="300" height="150"> | <img src="https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes/blob/main/images/keep_160.png" width="300" height="150"> 
 
   
 ### Future steps  
