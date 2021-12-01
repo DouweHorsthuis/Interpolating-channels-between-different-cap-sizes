@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Horsthuis"
+  given-names: "Douwe John"
+title: "Interpolating-channels-between-different-cap-sizes"
+version: 1.0.0
+doi: 10.5281/zenodo.5605020
+date-released: 2021-12-01
+url: "https://github.com/DouweHorsthuis/Interpolating-channels-between-different-cap-sizes"
